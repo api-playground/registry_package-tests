@@ -14,6 +14,7 @@ jobs:
         with:
           node-version: 12
           registry-url: https://npm.pkg.github.com/devin-webhooks-test
+          scope: "@devinriley"
 
       - name: "Configure git"
         run: |

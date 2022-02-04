@@ -1,14 +1,14 @@
 {
-  "name": "@h10s/test",
+  "name": "@devinriley/test-webhooks",
   "version": "1.0.0",
   "description": "this is a test package",
   "main": "index.js",
-  "author": "h10s",
+  "author": "devinriley",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/h10s/registry_package-tests.git"
+    "url": "git+https://github.com/api-playground/registry_package-tests.git"
   },
   "publishConfig": {
-    "registry": "https://npm.pkg.github.com/h10s"
+    "registry": "https://npm.pkg.github.com/devinriley"
   }
 }

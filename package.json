@@ -9,6 +9,6 @@
     "url": "git+https://github.com/api-playground/registry_package-tests.git"
   },
   "publishConfig": {
-    "registry": "https://npm.pkg.github.com/devinriley"
+    "registry": "https://npm.pkg.github.com"
   }
 }

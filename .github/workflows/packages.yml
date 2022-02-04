@@ -1,0 +1,105 @@
+name: Publish and update package
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "23 * * * *" 
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: setup node
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12
+          # oops, should probably be https://npm.pkg.github.com/h10s
+          # registry-url: https://npm.pkg.github.com/actions-sauron
+          registry-url: https://npm.pkg.github.com/h10s
+
+      - name: "Configure git"
+        run: |
+          # Tell git who we are.
+          git config --global user.name "github-actions"
+          git config --global user.email "github-actions@users.noreply.github.com"
+
+      - name: change package name
+        run: |
+          npx change-package-name "@h10s/test-pkg-`date +%Y-%m-%d-%H-%M`"
+          git add .
+          git commit -m "publish to npm"
+
+      - name: publish version 1.0.0 of package
+        run: |
+          npm publish
+        env:
+         NODE_AUTH_TOKEN: ${{ secrets.PACKAGE_PAT }}
+
+      - name: sleep briefly
+        run: sleep 5
+
+      - name: publish patch 1
+        run: |
+          npm version patch
+          npm publish
+        env:
+         NODE_AUTH_TOKEN: ${{ secrets.PACKAGE_PAT }}
+
+      - name: sleep briefly
+        run: sleep 5
+
+      - name: publish patch 2
+        run: |
+          npm version patch
+          npm publish
+        env:
+         NODE_AUTH_TOKEN: ${{ secrets.PACKAGE_PAT }}
+
+      - name: publish patch 3
+        run: |
+          npm version patch
+          npm publish
+        env:
+         NODE_AUTH_TOKEN: ${{ secrets.PACKAGE_PAT }}
+
+      - name: publish patch 4
+        run: |
+          npm version patch
+          npm publish
+        env:
+         NODE_AUTH_TOKEN: ${{ secrets.PACKAGE_PAT }}
+
+      - name: publish patch 5
+        run: |
+          npm version patch
+          npm publish
+        env:
+         NODE_AUTH_TOKEN: ${{ secrets.PACKAGE_PAT }}
+
+      - name: publish patch 6
+        run: |
+          npm version patch
+          npm publish
+        env:
+         NODE_AUTH_TOKEN: ${{ secrets.PACKAGE_PAT }}
+
+      - name: publish patch 7
+        run: |
+          npm version patch
+          npm publish
+        env:
+         NODE_AUTH_TOKEN: ${{ secrets.PACKAGE_PAT }}
+
+      - name: publish patch 8
+        run: |
+          npm version patch
+          npm publish
+        env:
+         NODE_AUTH_TOKEN: ${{ secrets.PACKAGE_PAT }}
+
+      - name: publish patch 9
+        run: |
+          npm version patch
+          npm publish
+        env:
+         NODE_AUTH_TOKEN: ${{ secrets.PACKAGE_PAT }}

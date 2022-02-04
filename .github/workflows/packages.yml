@@ -27,6 +27,9 @@ jobs:
           npx change-package-name "@devinriley/test-pkg-`date +%Y-%m-%d-%H-%M`"
           git add .
           git commit -m "publish to npm"
+        env:
+         NODE_AUTH_TOKEN: ${{ secrets.PACKAGE_PAT }}
+
 
       - name: publish version 1.0.0 of package
         run: |

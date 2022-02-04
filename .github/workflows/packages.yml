@@ -13,9 +13,7 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: 12
-          # oops, should probably be https://npm.pkg.github.com/h10s
-          # registry-url: https://npm.pkg.github.com/actions-sauron
-          registry-url: https://npm.pkg.github.com/h10s
+          registry-url: https://npm.pkg.github.com/devin-webhooks-test
 
       - name: "Configure git"
         run: |
@@ -25,7 +23,7 @@ jobs:
 
       - name: change package name
         run: |
-          npx change-package-name "@h10s/test-pkg-`date +%Y-%m-%d-%H-%M`"
+          npx change-package-name "@devin-webhooks-test/test-pkg-`date +%Y-%m-%d-%H-%M`"
           git add .
           git commit -m "publish to npm"
 
